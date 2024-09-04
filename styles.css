@@ -1,0 +1,130 @@
+/* Moving gradient background */
+.gradient-bg {
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    background: linear-gradient(45deg, #ff6b6b, #f8e71c, #7ed321, #50e3c2, #9013fe, #4a90e2, #f5a623, #d0021b);
+    background-size: 400% 400%;
+    animation: gradient-animation 10s ease infinite;
+    height: 100vh; /* Make it full height */
+}
+
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Transparent cards */
+.hover-card {
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Optional: Adds a blur effect to the background seen through the card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect for the card */
+.hover-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #0d6efd; /* Slightly less transparent on hover */
+    color: #f8f9fa;
+}
+
+/* Button hover effect */
+.hover-card .btn-light:hover {
+    /* background-color: rgb(13, 110, 253); */
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Position shapes absolutely within the hero section */
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.7; /* Make shapes more visible */
+    animation: float 10s ease-in-out infinite;
+}
+
+/* Larger shapes with different sizes, colors, and positions */
+.shape1 {
+    width: 200px;  /* Increase size */
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.15); /* Increase opacity slightly */
+    top: 10%; /* Adjust position */
+    left: 5%; /* Adjust position */
+    animation-delay: 0s;
+    pointer-events: none;
+}
+
+.shape2 {
+    width: 300px;  /* Increase size */
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.2); /* Increase opacity slightly */
+    bottom: 20%; /* Adjust position */
+    right: 10%; /* Adjust position */
+    animation-delay: 2s;
+    pointer-events: none;
+}
+
+.shape3 {
+    width: 250px;  /* Increase size */
+    height: 250px;
+    background-color: rgba(255, 255, 255, 0.18); /* Increase opacity slightly */
+    top: 40%; /* Adjust position */
+    left: 50%; /* Adjust position */
+    animation-delay: 4s;
+    pointer-events: none;
+}
+
+/* Keyframes for float animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px); /* Increase float distance */
+    }
+}
+ /* Shape styles */
+ .shape-overlap {
+    position: relative;
+    z-index: 1;
+  }
+
+  .shape-overlap::before,
+  .shape-overlap::after {
+    content: "";
+    position: absolute;
+    width: 00px;
+    height: 00px;
+    background-color: #fff;
+    z-index: -1;
+  }
+
+  .shape-overlap::before {
+    background-color: #fff; /* Color of the second section */
+    left: -50px;
+    top: -50px;
+    border-radius: 50%;
+  }
+
+  .shape-overlap::after {
+    background-color: #0d6efd; /* Color of the first section */
+    right: -50px;
+    bottom: -50px;
+    border-radius: 50%;
+  }
+
+  /* Section 1: Hero */
+  #hero {
+    background-color: #0d6efd; /* Blue background */
+  }
+
+  /* Section 2: Services */
+  .services-section {
+    background-color: #fff;
+    padding-top: 100px;
+    position: relative;
+    z-index: 2;
+  }
